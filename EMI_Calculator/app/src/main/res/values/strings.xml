@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EMI Calculator</string>
+    <string name="enter_principal">Enter Principal</string>
+    <string name="enter_time">Enter Time (In Months)</string>
+    <string name="enter_rate">Enter Rate</string>
+    <string name="submit">Submit</string>
+</resources>
