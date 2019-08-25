@@ -19,12 +19,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btn_submit;
-    EditText login;
-    EditText password;
+    Button btn_submit, canvas, location_btn, notification;
+    EditText login, password;
     TextView register;
-    Button location_btn;
-    Button canvas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         register = findViewById(R.id.register);
         location_btn = findViewById(R.id.location_activity);
         canvas = findViewById(R.id.canvas_activity);
+        notification = findViewById(R.id.notification);
 
         location_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +48,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CanvasActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
                 startActivity(intent);
             }
         });

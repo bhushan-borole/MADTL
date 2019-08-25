@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CanvasActivity"/>
+        <activity android:name=".NotificationView"></activity>
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".CanvasActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />

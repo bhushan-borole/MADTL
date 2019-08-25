@@ -10,4 +10,5 @@
         <item>Marketing</item>
         <item>Human Resource</item>
     </array>
+    <string name="title_activity_notification">NotificationActivity</string>
 </resources>

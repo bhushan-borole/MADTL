@@ -75,6 +75,11 @@
             android:layout_height="wrap_content"
             android:text="Go to Canvas activity"
             android:id="@+id/canvas_activity"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to notification activity"
+            android:id="@+id/notification"/>
 
     </LinearLayout>
 
