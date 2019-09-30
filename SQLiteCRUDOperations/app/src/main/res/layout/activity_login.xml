@@ -61,7 +61,6 @@
             android:layout_height="wrap_content"
             android:text="Not a User, Sign In ?"
             android:layout_marginTop="20dp"
-            android:textColor="#000000"
             android:id="@+id/register"/>
 
         <Button
@@ -80,6 +79,10 @@
             android:layout_height="wrap_content"
             android:text="Go to notification activity"
             android:id="@+id/notification"/>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch_theme"/>
 
     </LinearLayout>
 
