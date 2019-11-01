@@ -62,5 +62,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        palin_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Palindrome.class);
+                startActivity(intent);
+            }
+        });
+
+        palin_str.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Palindrome.class);
+                startActivity(intent);
+            }
+        });
     }
 }
