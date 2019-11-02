@@ -6,19 +6,19 @@ import javax.microedition.midlet.*;
 public class Factorial extends MIDlet implements CommandListener{
 	private Form form;
 	private Display display;
-	private TextField name;
+	private TextField input;
 	private Command ok;
 	private StringItem stringItem;
 	
 	public Factorial(){
-		name = new TextField("Enter number:", "", 30, TextField.ANY);
+		input = new TextField("Enter number:", "", 30, TextField.NUMERIC);
 		ok = new Command("OK", Command.OK, 2);
 	}
 
 	public void startApp(){
 		display = Display.getDisplay(this);
 		form = new Form("Factorial");
-		form.append(name);
+		form.append(input);
 		form.addCommand(ok);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -40,7 +40,7 @@ public class Factorial extends MIDlet implements CommandListener{
 	}
 	public void showInput(){
 		display = Display.getDisplay(this);
-		int n = Integer.parseInt(name.getString());
+		int n = Integer.parseInt(input.getString());
 		
 		stringItem = new StringItem("Factorial: ", String.valueOf(fact(n)));
 		form.append(stringItem);
