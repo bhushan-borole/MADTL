@@ -1,6 +1,7 @@
 MIDlet-1: Factorial,,com.chit2.Factorial
 MIDlet-2: Prime,,com.chit3.Prime
 MIDlet-3: Palindrome,,com.chit4_13.Palindrome
+MIDlet-4: Reverse,,com.chit5.Reverse
 MIDlet-Jar-URL: AllPrograms.jar
 MIDlet-Name: AllPrograms MIDlet Suite
 MIDlet-Vendor: MIDlet Suite Vendor
