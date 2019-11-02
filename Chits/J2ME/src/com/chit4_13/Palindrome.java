@@ -1,4 +1,4 @@
-package com.chit3;
+package com.chit4_13;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -10,15 +10,15 @@ import javax.microedition.lcdui.TextField;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
 
-public class Prime extends MIDlet implements CommandListener{
-	private Form form;
+public class Palindrome extends MIDlet implements CommandListener{
 	private Display display;
 	private TextField input;
 	private Command com;
 	private StringItem stringItem;
+	private Form form;
 
-	public Prime() {
-		input = new TextField("Enter number: ", "", 30, TextField.NUMERIC);
+	public Palindrome() {
+		input = new TextField("Enter String or number", "", 30, TextField.ANY);
 		com = new Command("OK", Command.OK, 2);
 	}
 
@@ -30,45 +30,44 @@ public class Prime extends MIDlet implements CommandListener{
 
 	protected void startApp() throws MIDletStateChangeException {
 		display = Display.getDisplay(this);
-		form = new Form("Prime");
+		form = new Form("Palindrome");
 		form.append(input);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
 	}
 	
-	public static boolean checkPrime(int num){
-	    int count = 0;
-	    for(int i=1; i<=num; i++){
-	        if(num%i == 0)
-	            count += 1;
-	    }
-	
-	    if(count == 2)
-	        return true;
-	    return false;
+	public boolean checkPalindrome(String s) {
+		String rev = "";
+		for(int i=s.length()-1; i>=0; i--)
+			rev += s.charAt(i);
+		if(s.equals(rev))
+			return true;
+		return false;
 	}
 	
-	public void showInput() {
+	public void show() {
 		display = Display.getDisplay(this);
-		int num = Integer.parseInt(input.getString());
-		if(checkPrime(num))
-			stringItem = new StringItem("Prime: True", "");
-		else 
-			stringItem = new StringItem("Prime: False", "");
+		String s = input.getString();
+		if(checkPalindrome(s))
+			stringItem = new StringItem("Palindrome: True", "");
+		else
+			stringItem = new StringItem("Palindrome: False", "");
 		form.append(stringItem);
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable d) {
-		String n = c.getLabel();
-		if(n.equals("OK")) {
+		String label = c.getLabel();
+		if(label.equals("OK")) {
 			try {
 				form.delete(1);
 			}
 			catch(Exception e) {}
-			showInput();
+			show();
 		}
+			
+		
 	}
 
 }
