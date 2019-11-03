@@ -26,8 +26,9 @@ public class Reverse extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String in = input.getText().toString().trim();
-                StringBuilder sb = new StringBuilder(in);
-                String rev = sb.reverse().toString();
+                String rev = "";
+                for(int i=in.length()-1; i>=0; i--)
+                    rev += in.charAt(i);
                 op.setText(rev);
             }
         });
