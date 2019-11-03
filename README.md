@@ -3,10 +3,10 @@
 
 ### LIST OF EXPERIMENTS FOR EXTERNALS
  - [ ] WAP for simple calculator in Android/ J2ME
- - [ ] WAP to find the FACTORIAL of a given number in Android/J2ME
- - [ ] WAP to check whether a given number is prime in Android/J2ME.
- - [ ] WAP a program to check whether a given string is a palindrome in Android/J2ME.
- - [ ] WAP a program to reverse a given string without using the standard functions in Android/J2ME.
+ - [x] WAP to find the FACTORIAL of a given number in Android/J2ME
+ - [x] WAP to check whether a given number is prime in Android/J2ME.
+ - [x] WAP a program to check whether a given string is a palindrome in Android/J2ME.
+ - [x] WAP a program to reverse a given string without using the standard functions in Android/J2ME.
  - [ ] WAP a program to calculate the Simple and Compound Interest in Android/J2ME.
  - [ ] WAP a program to calculate the area and circumference of a circle in Android/J2ME.
  - [ ] WAP a program to calculate the area and perimeter of a rectangle and square in Android/J2ME.
