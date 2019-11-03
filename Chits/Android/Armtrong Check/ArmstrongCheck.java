@@ -15,12 +15,12 @@ public class ArmstrongCheck extends AppCompatActivity {
     private EditText inp;
     private TextView op;
 
-    public static boolean checkArmstrong(String num){
-        String [] numArr = num.split("");
-        int count = 0;
+    public static boolean checkArmstrong(Long num){
+        String [] numArr = String.valueOf(num).split("");
+        long count = 0;
         for(int i=1; i<numArr.length; i++)
             count += Math.pow(Integer.parseInt(numArr[i]), 3);
-        if(count == Integer.parseInt(num))
+        if(count == num)
             return true;
         return false;
     }
@@ -37,7 +37,7 @@ public class ArmstrongCheck extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String in = inp.getText().toString().trim();
+                long in = Long.parseLong(inp.getText().toString().trim());
                 if(checkArmstrong(in))
                     op.setText("Armstrong: True");
                 else
