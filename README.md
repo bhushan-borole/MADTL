@@ -15,7 +15,7 @@
  - [x] WAP to check if the given number is Armstrong number or not in Android/J2ME..
  - [x] WAP to Display Armstrong numbers between 1 to 1000 in Android/J2ME..
  - [x] WAP to check if a given number is a palindrome in Android/J2ME..
- - [ ] WAP to generate Fibonacci series till a given number in Android/J2ME..
+ - [x] WAP to generate Fibonacci series till a given number in Android/J2ME..
  - [x] WAP to accept number of days from the user and Convert it into years, months and days in Android/J2ME..
 
 
