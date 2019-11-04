@@ -2,7 +2,7 @@
 
 
 ### LIST OF EXPERIMENTS FOR EXTERNALS
- - [ ] WAP for simple calculator in Android/ J2ME
+ - [x] WAP for simple calculator in Android/ J2ME
  - [x] WAP to find the FACTORIAL of a given number in Android/J2ME
  - [x] WAP to check whether a given number is prime in Android/J2ME.
  - [x] WAP a program to check whether a given string is a palindrome in Android/J2ME.
