@@ -1,4 +1,4 @@
-package com.chit13;
+package com.chit10;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -22,6 +22,7 @@ public class Largest extends MIDlet implements CommandListener{
 		ip1 = new TextField("Enter first number: ", "", 30, TextField.NUMERIC);
 		ip2 = new TextField("Enter second number: ", "", 30, TextField.NUMERIC);
 		ip3 = new TextField("Enter third number: ", "", 30, TextField.NUMERIC);
+		output = new StringItem("Largest: ", "");
 		com = new Command("OK", Command.OK, 2);
 	}
 
@@ -37,6 +38,7 @@ public class Largest extends MIDlet implements CommandListener{
 		form.append(ip1);
 		form.append(ip2);
 		form.append(ip3);
+		form.append(output);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -50,21 +52,14 @@ public class Largest extends MIDlet implements CommandListener{
 		int res = num3 > (num1 > num2 ? num1: num2) ? num3 : (num1 > num2 ? num1: num2);
 		
 		display = Display.getDisplay(this);
-		output = new StringItem("Largest number: ", String.valueOf(res));
-		form.append(output);
+		output.setText(String.valueOf(res));
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(3);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK")) 
 			show();
-		}
-		
 	}
 
 }

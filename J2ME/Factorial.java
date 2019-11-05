@@ -13,12 +13,14 @@ public class Factorial extends MIDlet implements CommandListener{
 	public Factorial(){
 		input = new TextField("Enter number:", "", 30, TextField.NUMERIC);
 		ok = new Command("OK", Command.OK, 2);
+		stringItem = new StringItem("Result: ", "");
 	}
 
 	public void startApp(){
 		display = Display.getDisplay(this);
 		form = new Form("Factorial");
 		form.append(input);
+		form.append(stringItem);
 		form.addCommand(ok);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -42,20 +44,14 @@ public class Factorial extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		int n = Integer.parseInt(input.getString());
 		
-		stringItem = new StringItem("Factorial: ", String.valueOf(fact(n)));
-		form.append(stringItem);
+		stringItem .setText(String.valueOf(fact(n)));
 		display.setCurrent(form);
 	}
 
 
 	public void commandAction(Command c, Displayable d) {
 		String label = c.getLabel();
-		if(label.equals("OK")){
-			try{
-				form.delete(1);
-			} 
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			showInput();
-		} 
 	}
 }

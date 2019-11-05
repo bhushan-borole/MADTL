@@ -20,6 +20,7 @@ public class Prime extends MIDlet implements CommandListener{
 	public Prime() {
 		input = new TextField("Enter number: ", "", 30, TextField.NUMERIC);
 		com = new Command("OK", Command.OK, 2);
+		stringItem = new StringItem("Prime: ", "");
 	}
 
 	protected void destroyApp(boolean arg0) throws MIDletStateChangeException {
@@ -32,6 +33,7 @@ public class Prime extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		form = new Form("Prime");
 		form.append(input);
+		form.append(stringItem);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -53,22 +55,16 @@ public class Prime extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		int num = Integer.parseInt(input.getString());
 		if(checkPrime(num))
-			stringItem = new StringItem("Prime: True", "");
+			stringItem.setText("True");
 		else 
-			stringItem = new StringItem("Prime: False", "");
-		form.append(stringItem);
+			stringItem.setText("False");
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable d) {
 		String n = c.getLabel();
-		if(n.equals("OK")) {
-			try {
-				form.delete(1);
-			}
-			catch(Exception e) {}
+		if(n.equals("OK"))
 			showInput();
-		}
 	}
 
 }

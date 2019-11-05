@@ -21,6 +21,7 @@ public class Reverse extends MIDlet implements CommandListener{
 	public Reverse() {
 		inp = new TextField("Enter string:", "", 40, TextField.ANY);
 		com = new Command("OK", Command.OK, 2);
+		op = new StringItem("Result: ", "");
 	}
 
 	protected void destroyApp(boolean arg0) throws MIDletStateChangeException {
@@ -33,6 +34,7 @@ public class Reverse extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		form = new Form("Reverse");
 		form.append(inp);
+		form.append(op);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -44,21 +46,14 @@ public class Reverse extends MIDlet implements CommandListener{
 		String rev = "";
 		for(int i=input.length()-1; i>=0; i--)
 			rev += input.charAt(i);
-		op = new StringItem("Reverse: ", rev);
-		form.append(op);
+		op.setText(rev);
 		display.setCurrent(form);
 		
 	}
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = 	c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(1);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			show();
-		}
 	}
-
 }

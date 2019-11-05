@@ -21,6 +21,7 @@ public class ArmstrongCheck extends MIDlet implements CommandListener{
 	public ArmstrongCheck() {
 		inp = new TextField("Enter string:", "", 40, TextField.ANY);
 		com = new Command("OK", Command.OK, 2);
+		op = new StringItem("Armstrong: ", "");
 	}
 
 	protected void destroyApp(boolean arg0) throws MIDletStateChangeException {
@@ -33,6 +34,7 @@ public class ArmstrongCheck extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		form = new Form("Reverse");
 		form.append(inp);
+		form.append(op);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -42,10 +44,9 @@ public class ArmstrongCheck extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		String input = inp.getString();
 		if(checkArmstrong(Long.parseLong(input)))
-			op = new StringItem("armstrong: true", "");
+			op.setText("true");
 		else
-			op = new StringItem("armstrong: false", "");
-		form.append(op);
+			op.setText("false");
 		display.setCurrent(form);
 		
 	}
@@ -67,13 +68,8 @@ public class ArmstrongCheck extends MIDlet implements CommandListener{
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = 	c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(1);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			show();
-		}
 	}
 
 }

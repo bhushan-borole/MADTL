@@ -22,6 +22,8 @@ public class Circle extends MIDlet implements CommandListener{
 	public Circle() {
 		inp = new TextField("Enter radius:", "", 40, TextField.DECIMAL);
 		com = new Command("OK", Command.OK, 2);
+		op1 = new StringItem("Area: ", "");
+		op2 = new StringItem("Circumference: ", "");
 	}
 
 	protected void destroyApp(boolean arg0) throws MIDletStateChangeException {
@@ -34,6 +36,8 @@ public class Circle extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		form = new Form("Circle");
 		form.append(inp);
+		form.append(op1);
+		form.append(op2);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -45,24 +49,15 @@ public class Circle extends MIDlet implements CommandListener{
 		double r = Double.parseDouble(inp.getString());
 		double area = Math.PI * r * r;
 		double circum = 2 * Math.PI * r;
-		op1 = new StringItem("Area: ", String.valueOf(area));
-		op2 = new StringItem("Circumference: ", String.valueOf(circum));
-		form.append(op1);
-		form.append(op2);
+		op1.setText(String.valueOf(area));
+		op2.setText(String.valueOf(circum));
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = 	c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(1);
-				form.delete(2);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			show();
-		}
-		
 	}
 
 }

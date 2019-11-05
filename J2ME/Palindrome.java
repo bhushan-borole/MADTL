@@ -20,6 +20,7 @@ public class Palindrome extends MIDlet implements CommandListener{
 	public Palindrome() {
 		input = new TextField("Enter String or number", "", 30, TextField.ANY);
 		com = new Command("OK", Command.OK, 2);
+		stringItem = new StringItem("Palindrome: ", "");
 	}
 
 	protected void destroyApp(boolean arg0) throws MIDletStateChangeException {
@@ -32,6 +33,7 @@ public class Palindrome extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		form = new Form("Palindrome");
 		form.append(input);
+		form.append(stringItem);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -50,24 +52,16 @@ public class Palindrome extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		String s = input.getString();
 		if(checkPalindrome(s))
-			stringItem = new StringItem("Palindrome: True", "");
+			stringItem.setText("True");
 		else
-			stringItem = new StringItem("Palindrome: False", "");
-		form.append(stringItem);
+			stringItem.setText("False");
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable d) {
 		String label = c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(1);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			show();
-		}
-			
-		
 	}
 
 }

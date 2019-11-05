@@ -22,6 +22,7 @@ public class SimpleInterest extends MIDlet implements CommandListener{
 		ip1 = new TextField("Enter principal: ", "", 30, TextField.NUMERIC);
 		ip2 = new TextField("Enter rate: ", "", 30, TextField.NUMERIC);
 		ip3 = new TextField("Enter time (in years): ", "", 30, TextField.NUMERIC);
+		output = new StringItem("SI: ", "");
 		com = new Command("OK", Command.OK, 2);
 	}
 
@@ -37,6 +38,7 @@ public class SimpleInterest extends MIDlet implements CommandListener{
 		form.append(ip1);
 		form.append(ip2);
 		form.append(ip3);
+		form.append(output);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -50,21 +52,14 @@ public class SimpleInterest extends MIDlet implements CommandListener{
 		int si = (num1 * num2 * num3) / 100;
 		
 		display = Display.getDisplay(this);
-		output = new StringItem("Simple Interest: ", String.valueOf(si));
-		form.append(output);
+		output.setText(String.valueOf(si));
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(3);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK")) 
 			show();
-		}
-		
 	}
 
 }

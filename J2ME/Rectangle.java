@@ -23,6 +23,8 @@ public class Rectangle extends MIDlet implements CommandListener{
 	public Rectangle() {
 		inp_len = new TextField("Enter length:", "", 40, TextField.DECIMAL);
 		inp_br = new TextField("Enter breadth:", "", 40, TextField.DECIMAL);
+		op1 = new StringItem("Area: ", "");
+		op2 = new StringItem("Perimeter: ", "");
 		com = new Command("OK", Command.OK, 2);
 	}
 
@@ -37,6 +39,8 @@ public class Rectangle extends MIDlet implements CommandListener{
 		form = new Form("Circle");
 		form.append(inp_len);
 		form.append(inp_br);
+		form.append(op1);
+		form.append(op2);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -48,25 +52,16 @@ public class Rectangle extends MIDlet implements CommandListener{
 		double len = Double.parseDouble(inp_len.getString());
 		double breadth = Double.parseDouble(inp_br.getString());
 		double area = len * breadth;
-		double circum = 2 * (len + breadth);
-		op1 = new StringItem("Area: ", String.valueOf(area));
-		op2 = new StringItem("Circumference: ", String.valueOf(circum));
-		form.append(op1);
-		form.append(op2);
+		double peri = 2 * (len + breadth);
+		op1.setText(String.valueOf(area));
+		op2.setText(String.valueOf(peri));		
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = 	c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(2);
-				form.delete(3);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			show();
-		}
-		
 	}
 
 }

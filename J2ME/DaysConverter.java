@@ -21,6 +21,7 @@ public class DaysConverter extends MIDlet implements CommandListener{
 	public DaysConverter() {
 		input = new TextField("Enter days: ", "", 10, TextField.NUMERIC);
 		com = new Command("OK", Command.OK, 2);
+		output = new StringItem("", "");
 	}
 
 	protected void destroyApp(boolean arg0) throws MIDletStateChangeException {
@@ -33,6 +34,7 @@ public class DaysConverter extends MIDlet implements CommandListener{
 		display = Display.getDisplay(this);
 		form = new Form("Days Converter");
 		form.append(input);
+		form.append(output);
 		form.addCommand(com);
 		form.setCommandListener(this);
 		display.setCurrent(form);
@@ -46,21 +48,14 @@ public class DaysConverter extends MIDlet implements CommandListener{
 		int pending_days = (days % 365) % 30;
 		
 		String res = "Years: " + years + " Months: " + months + " Days: " + pending_days;
-		output = new StringItem("", res);
-		
-		form.append(output);
+		output.setText(res);
 		display.setCurrent(form);
 	}
 
 	public void commandAction(Command c, Displayable arg1) {
 		String label = c.getLabel();
-		if(label.equals("OK")) {
-			try {
-				form.delete(1);
-			}
-			catch(Exception e) {}
+		if(label.equals("OK"))
 			show();
-		}
 	}
 
 }
