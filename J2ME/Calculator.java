@@ -17,19 +17,19 @@ public class Calculator extends MIDlet implements CommandListener{
 	public Calculator(){}
     
     public void startApp(){
-		display = Display.getDisplay(this);
-		Form form = new Form("Calculator");
-		item = new StringItem("Result", "");
-		input1 = new TextField("First Number:", "", 30, TextField.NUMERIC);
-		input2 = new TextField("Second Number", "", 30, TextField.NUMERIC);
-		form.append(input1);form.append(input2);
-		add = new Command("Addition", Command.OK, 1);
-		sub = new Command("Subtraction", Command.OK, 1);
-		mul = new Command("Multiplication", Command.OK, 1);
-		div = new Command("Division", Command.OK, 1);
-		form.addCommand(add);form.addCommand(sub);form.addCommand(mul);
-		form.addCommand(div);form.append(item);form.setCommandListener(this);
-		display.setCurrent(form); 
+	display = Display.getDisplay(this);
+	Form form = new Form("Calculator");
+	item = new StringItem("Result", "");
+	input1 = new TextField("First Number:", "", 30, TextField.NUMERIC);
+	input2 = new TextField("Second Number", "", 30, TextField.NUMERIC);
+	form.append(input1);form.append(input2);
+	add = new Command("Addition", Command.OK, 1);
+	sub = new Command("Subtraction", Command.OK, 1);
+	mul = new Command("Multiplication", Command.OK, 1);
+	div = new Command("Division", Command.OK, 1);
+	form.addCommand(add);form.addCommand(sub);form.addCommand(mul);
+	form.addCommand(div);form.append(item);form.setCommandListener(this);
+	display.setCurrent(form); 
     }
     
     public void pauseApp() { }
